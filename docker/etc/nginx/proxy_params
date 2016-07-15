@@ -1,0 +1,39 @@
+proxy_set_header Host $http_host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header If-Modified-Since "";
+proxy_set_header HTTP_ORIGIN $http_origin;
+#proxy_set_header GEO_IP_COUNTRY_CODE $geoip_country_code;
+#proxy_set_header Accept-Encoding "";
+
+#proxy_hide_header "X-Powered-By";
+#proxy_hide_header "X-Lang-Id";
+#proxy_hide_header "X-Skip-Nginx-Cache";
+#proxy_ignore_headers "X-Accel-Redirect" "X-Accel-Expires" "Cache-Control" "Expires";
+#proxy_redirect            off;
+
+client_max_body_size        512m;
+client_body_buffer_size     128k;
+proxy_connect_timeout       60;
+proxy_send_timeout          60;
+proxy_read_timeout          60;
+proxy_buffer_size           256k;
+proxy_buffers               4 256k;
+proxy_busy_buffers_size     256k;
+proxy_temp_file_write_size  256k;
+#proxy_max_temp_file_size    1m;
+proxy_max_temp_file_size    0;
+
+#proxy_next_upstream error timeout invalid_header http_502 http_503 http_504;
+#proxy_cache_use_stale error timeout invalid_header updating http_500 http_502 http_503 http_504 http_404;
+#proxy_cache_valid 200 301 302 60m;
+#proxy_cache_valid 404 15m;
+#proxy_cache_valid any 60m;
+#proxy_cache_methods GET HEAD;
+
+##proxy_no_cache $http_pragma $http_authorization;
+##proxy_no_cache $cookie_nocache $arg_nocache $arg_debug;
+##proxy_cache_bypass $http_x_skip_nginx_cache;
+##proxy_cache_min_uses 1;
+##proxy_cache_lock on;
+##proxy_cache_lock_timeout 10s;

@@ -1,0 +1,9 @@
+server {
+    listen      80 default_server;
+    server_name _;
+    if ($bad_country = yes) {
+        return 444;
+    }
+    root /var/www;
+    include shared.conf;
+}
