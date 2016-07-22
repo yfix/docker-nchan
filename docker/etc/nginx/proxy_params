@@ -3,6 +3,7 @@ proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 proxy_set_header If-Modified-Since "";
 proxy_set_header HTTP_ORIGIN $http_origin;
+proxy_set_header Proxy "";
 #proxy_set_header GEO_IP_COUNTRY_CODE $geoip_country_code;
 #proxy_set_header Accept-Encoding "";
 
